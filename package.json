@@ -10,7 +10,8 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "prepare": "husky install",
+    "prepare": "husky",
+    "lint": "eslint scripts/generate-icons.ts",
     "prepublishOnly": "npm run build",
     "postbuild": "cp package.json README.md dist",
     "generate": "ts-node scripts/generate-icons.ts",
@@ -26,17 +27,23 @@
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
+    "@eslint/js": "9.12.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/npm": "12.0.1",
     "@svgr/cli": "^8.1.0",
     "@svgr/core": "^8.1.0",
     "@types/react": "^18.3.11",
+    "eslint": "9.12.0",
+    "eslint-plugin-react": "7.37.1",
+    "globals": "15.11.0",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
+    "prettier": "3.3.3",
     "semantic-release": "24.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.8.1"
   },
   "peerDependencies": {
     "@svgr/core": "^8.1.0",
