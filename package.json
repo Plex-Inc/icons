@@ -2,8 +2,9 @@
   "name": "@plex-inc/icons",
   "description": "Plex icons",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Plex-Inc/icons.git"
@@ -13,17 +14,13 @@
     "prepare": "husky",
     "lint": "eslint scripts/generate-icons.ts",
     "prepublishOnly": "npm run build",
-    "postbuild": "cp package.json README.md dist",
-    "generate": "ts-node scripts/generate-icons.ts",
-    "build": "npm run clean && npm run generate && tsc"
+    "generate": "node --loader ts-node/esm scripts/generate-icons.ts",
+    "build": "npm run clean && npm run generate && rollup -c"
   },
   "files": [
     "dist"
   ],
   "keywords": [],
-  "dependencies": {
-    "svgson": "^5.3.1"
-  },
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
@@ -40,7 +37,10 @@
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "prettier": "3.3.3",
+    "rollup": "4.24.0",
+    "rollup-plugin-typescript2": "0.36.0",
     "semantic-release": "24.1.2",
+    "svgson": "5.3.1",
     "ts-node": "^10.9.2",
     "typescript": "5.5.4",
     "typescript-eslint": "8.8.1"
