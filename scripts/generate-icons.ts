@@ -41,16 +41,33 @@ async function generateIcon(iconName: string, filePath: string): Promise<string>
  * \`\`\`jsx
  * import { ${iconName} } from '@plex-inc/icons'
  *
- * <${iconName} />
+ * <${iconName} size={24} />
  * \`\`\`
  */
-export const ${iconName} = React.forwardRef<SVGSVGElement, React.HTMLAttributes<SVGSVGElement>>((props, ref) => (
-  <svg ref={ref} viewBox="${getViewBox(source.attributes)}" fill="none" xmlns="${
-      source.attributes.xmlns || 'http://www.w3.org/2000/svg'
-  }" {...props}>
-    ${stringify(source.children as unknown as INode, { transformAttr })}
-  </svg>
-));`;
+export const ${iconName} = React.forwardRef<SVGSVGElement, React.HTMLAttributes<SVGSVGElement> & { size: 16 | 20 | 24 }>(({ style, ...props }, ref) => {
+    const styles = React.useMemo(() => {
+        const map = { display: 'flex', alignItems: 'center', justifyContent: 'center', height: 'auto', ...style };
+
+        if (props.size) {
+            map.width = props.size + 'px';
+        }
+
+        return map;
+    }, [style])
+
+    return (
+        <svg 
+            ref={ref}
+            viewBox="${getViewBox(source.attributes)}"
+            fill="none" 
+            xmlns="${source.attributes.xmlns || 'http://www.w3.org/2000/svg'}"
+            style={styles}
+            {...props}
+        >
+            ${stringify(source.children as unknown as INode, { transformAttr })}
+        </svg>
+    )
+});`;
 }
 
 // Процесс генерации иконок из папок fill и stroke
