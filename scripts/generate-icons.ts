@@ -1,6 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { INode, parse, stringify } from 'svgson';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const toPascalCase = (str: string): string =>
     str.replace(/(^\w|-\w)/g, (clear) => clear.replace('-', '').toUpperCase());
