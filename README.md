@@ -24,5 +24,5 @@ After installing the package:
 ```tsx
     import { IconFill } from '@plex-inc/icons'
 
-    <IconFill />
+    <IconFill size={16} />
 ```
