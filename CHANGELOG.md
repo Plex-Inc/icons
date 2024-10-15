@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Plex-Inc/icons/compare/v1.0.0...v1.0.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **README.md:** add size to usage example ([e429058](https://github.com/Plex-Inc/icons/commit/e4290582da4362245c3f054f0ed688d2f1ae34d2))
+
 # 1.0.0 (2024-10-15)
 
 

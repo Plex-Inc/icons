@@ -1,7 +1,7 @@
 {
   "name": "@plex-inc/icons",
   "description": "Plex icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "type": "module",
